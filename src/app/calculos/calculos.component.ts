@@ -13,14 +13,25 @@ export class CalculosComponent implements OnInit {
   ngOnInit() {
   }
 
-  generarCalculos(){
+  generarCalculos(cantidad: number, conSumas: boolean, conRestas: boolean){
     var doc = new jsPDF();
+
+    var operaciones = Array();
+    
+    if(conSumas){
+      operaciones.push("suma");
+    }else if(conRestas){
+      operaciones.push("resta");
+    }
 
     doc.text("Calculos Mentales",100,10, "center");
 
     for(var i = 1; i <= 12; i++){
       for(var j= 0; j < 4; j++){
-        doc.text((j*50)+10, (i*10)+20, this.crearOperacion());
+
+        var Operacion = operaciones[Math.floor(Math.random()*operaciones.length)];
+
+        doc.text((j*50)+10, (i*10)+20, this.crearOperacion(Operacion));
       }
     }
 
@@ -28,9 +39,9 @@ export class CalculosComponent implements OnInit {
 
   }
 
-  crearOperacion(){
+  crearOperacion(operacion: String){
 
-    if(Math.floor(Math.random() * 2) == 0){
+    if(operacion == "suma"){
       return Math.floor(Math.random() * 10) + "+" + Math.floor(Math.random() * 10) + "="; 
     }else{
 

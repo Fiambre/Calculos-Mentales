@@ -1,14 +1,44 @@
 
-<div style="text-align: center; margin-top: 30px;">
-    <p class="range-field">
-        Cuantos Calculos Mentales?
-    <input type="range" #cantidad min="4" max="100" value="48" />
-    
+<div class="row" style="text-align: center; margin-top: 30px;">
+  <div class="col s6 offset-s3">
+  <h3>      ¿Cuantos Calculos Mentales? </h3>
+  <br>
+ 
+    <p class="range-field" style="margin:0px auto;">
+
+      <input type="range" #cantidad (input)="cantidad.value" min="4" max="100" value="48" />
+
+
+
     </p>
 
-<button class="btn waves-effect waves-light" (click)="generarCalculos()">
-  <i class="material-icons right">send</i>
-  Generar Calculos
-</button>
+
+    <h2>      {{cantidad.value}}</h2>
+  </div>
+
+  <div class="col s12">
+    <h4>¿Que operaciones?</h4>
+
+    <p>
+      <label>
+        <input #sumas type="checkbox" checked="checked" />
+        <span>Sumas</span>
+      </label>
+    </p>
+
+    <p>
+      <label>
+        <input #restas type="checkbox" checked="checked" />
+        <span>Restas</span>
+      </label>
+    </p>
+  </div>
+
+  <div class="col s12" style="margin-top:30px;">
+    <button class="btn waves-effect waves-light" (click)="generarCalculos(cantidad.value,sumas.checked,restas.checked)">
+      <i class="material-icons right">send</i>
+      Generar Calculos
+    </button>
+  </div>
 </div>
       
