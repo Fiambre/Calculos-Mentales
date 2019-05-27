@@ -1,3 +1,3 @@
 #Calculos Mentales
 
-![Image](../blob/master/example/ss1.png?raw=true)
+![image](https://github.com/Fiambre/Calculos-Mentales/raw/master/examples/ss1.png)
